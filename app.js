@@ -1,5 +1,6 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
+dotenv.config();
 import router from './routes/usersRouter.js';
 import mongoose from 'mongoose';
 const app = express();
@@ -7,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3008;
 app.use(express.json());
 mongoose
-    .connect('mongodb+srv://moses:ZfDceWc2nIFiVzeh@users.3oz1zus.mongodb.net/?retryWrites=true&w=majority')
+    .connect(process.env.MONGODB_URI)
     try {
         console.log('Connected to MongoDB')
     } catch (error) {
